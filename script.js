@@ -1,5 +1,18 @@
 // Assignment code here
+// variables for four characters (nums, special, upper, lower)
+var possibleNums = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ];
+var possibleUpperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" .split("");
+var possibleLowerCase = "" .split("");
+var possibleSymbols = "`~!@#$%^&*+" .split("");
 
+// function to generate a random numeric value
+var randomCharacter = function(arr) {
+  var value = Math.floor(Math.random() * arr.length);
+
+  return arr [value];
+};
+console.log (randomCharacter (possibleSymbols) )
+console.log (randomCharacter (possibleNums) )
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
