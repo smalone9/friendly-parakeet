@@ -1,6 +1,3 @@
-// Assignment code here
-var generateBtn = document.querySelector("#gen");
-
 // variables for four characters (nums, special, upper, lower)
 var possibleNums = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ];
 var possibleUpperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" .split("");
@@ -10,24 +7,38 @@ var allChars = possibleNums + possibleUpperCase + possibleLowerCase + possibleSy
 var chosenChar = "";
 
 // Gen password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
-}
-
-// Choose character length
-var length = prompt("How long do you want your password (8 - 128 characters)");
-if(isNaN(length)){
+//user input function
+function userInput() {
+  // Choose character length
+  var length = prompt("How long do you want your password (8 - 128 characters)");
+  if(isNaN(length)){
   alert("You need a value!");
-}
-if(length<8 || length>128){
+  return;
+  }
+  if(length<8 || length>128){
   alert("You need a value between 8 and 128");
+  return;
+  }
+  // t or f variables
+  var wantsNums = confirm("Do yo want numbers?");
+  var wantsUpperCase = confirm("Do yo want Uppercase?");
+  var wantsLowerCase = confirm("Do yo want LowerCase?");
+  var wantsSym = confirm("Do yo want symbols?");
+  if(!wantsNums && !wantsUpperCase && !wantsLowerCase && !wantsSym) {
+    alert("You need a selection!");
+    return;
+  }
+  var userChoices = {
+    passwordLength: length,
+    wantsNums,
+    wantsUpperCase,
+    wantsLowerCase,
+    wantsSym,
+  }
+  return userChoices;
 }
-
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword)
 
 // function to generate a random numeric value
 var randomCharacter = function(arr) {
@@ -35,8 +46,6 @@ var randomCharacter = function(arr) {
 
   return arr [value];
 };
-console.log (randomCharacter (possibleSymbols) )
-console.log (randomCharacter (possibleNums) )
 
 // shuffle array
 function shuffleArray(arr) {
@@ -50,6 +59,18 @@ function shuffleArray(arr) {
 }
 
 alert(generatePassword());
+
+// Assignment Code
+var generateBtn = document.querySelector("#generate");
+
+// Write password to the #password input
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
+  passwordText.value = password;
+}
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
 
 
 
