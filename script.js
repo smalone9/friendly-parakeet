@@ -3,8 +3,6 @@ var possibleNums = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ];
 var possibleUpperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" .split("");
 var possibleLowerCase = "abcdefghijklmnopqrstuvwxyz" .split("");
 var possibleSymbols = "`~!@#$%^&*+" .split("");
-var allChars = possibleNums + possibleUpperCase + possibleLowerCase + possibleSymbols;
-var chosenChar = "";
 
 // Gen password to the #password input
 
@@ -58,7 +56,23 @@ function shuffleArray(arr) {
   return arr;
 }
 
-alert(generatePassword());
+function generatePassword() {
+  var options = userInput();
+  var possibleCharacters = [];
+  var guaranteedCharacters = [];
+  var result = [];
+
+  if(options.wantsNums){
+    possibleCharacters = possibleCharacters.concat(possibleNums);
+    guaranteedCharacters.push(randomCharacter(possibleNums));
+  }
+  // repeat for other chars
+
+  // for loop
+  for (var i = 0; i < options.passwordLength; i++) {
+    result.push(randomCharacter(possibleCharacters));
+  }
+}
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
@@ -69,6 +83,7 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
 }
+alert(generatePassword());
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
