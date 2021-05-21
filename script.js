@@ -23,10 +23,10 @@ function userInput() {
   return;
   }
   // t or f variables
-  var wantsNum = confirm("Do yo want numbers?");
-  var wantsUpperCase = confirm("Do yo want Uppercase?");
-  var wantsLowerCase = confirm("Do yo want LowerCase?");
-  var wantsSym = confirm("Do yo want symbols?");
+  var wantsNum = confirm("Do you want numbers?");
+  var wantsUpperCase = confirm("Do you want Uppercase?");
+  var wantsLowerCase = confirm("Do you want LowerCase?");
+  var wantsSym = confirm("Do you want symbols?");
   if(!wantsNum && !wantsUpperCase && !wantsLowerCase && !wantsSym) {
     alert("You need a selection!");
     return;
@@ -79,6 +79,7 @@ function generatePassword() {
 }
 
 // Assignment Code
+// TO DO: Finish if statements, Include guaranteed character (another loop in this function), overwrite values in result array, return result
 
 
 // Write password to the #password input
