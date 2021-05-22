@@ -9,7 +9,7 @@ A website that generates passwords consisting of various lengths and characters 
 * Javascript
 
 ## Website
-file:///C:/Users/samma/Desktop/projects/friendly-parakeet/index.html
+[Check it Out](https://smalone9.github.io/friendly-parakeet/)
 
 ![Image of Password Generator](screenshot.png)
 
