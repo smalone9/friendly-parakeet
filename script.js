@@ -70,16 +70,36 @@ function generatePassword() {
     possibleCharacters = possibleCharacters.concat(possibleNum);
     guaranteedCharacters.push(randomCharacter(possibleNum));
   }
-  // repeat for other chars
 
+  if(options.wantsUpperCase){
+    possibleCharacters = possibleCharacters.concat
+    (possibleUpperCase);
+    guaranteedCharacters.push(randomCharacter(possibleUpperCase));
+  }
+
+  if(options.wantsLowerCase){
+    possibleCharacters = possibleCharacters.concat(possibleLowerCase);
+    guaranteedCharacters.push(randomCharacter(possibleLowerCase));
+  }
+
+  if(options.wantsSym){
+    possibleCharacters = possibleCharacters.concat
+    (possibleSymbols);
+    guaranteedCharacters.push(randomCharacter(possibleSymbols));
+  }
+ 
   // for loop
   for (var i = 0; i < options.passwordLength; i++) {
     result.push(randomCharacter(possibleCharacters));
   }
+
+  // guaranteed chars loop
+  for (var i = 0; i < options.passwordLength; i++) { result.push(randomCharacter(guaranteedCharacters));
+  }
 }
 
 // Assignment Code
-// TO DO: Finish if statements, Include guaranteed character (another loop in this function), overwrite values in result array, return result
+// TO DO: overwrite values in result array, return result
 
 
 // Write password to the #password input
@@ -94,6 +114,7 @@ alert(generatePassword());
 generateBtn.addEventListener("click", () => {
 writePassword();
 });
+
 
 
 
